@@ -1,7 +1,7 @@
-const load = () => {
-  document.querySelector('.loading');
-  return load.remove();
-};
+function load() {
+  const loading = document.querySelector('.loading');
+  return loading.remove();
+}
 
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
@@ -62,8 +62,9 @@ function createProductItemElement({ id: sku, title: name, thumbnail: image }) {
 }
 
 async function produtos() {
-  const arrProdutos = await fetchProducts();
-  arrProdutos.forEach((element) => {
+  const produtos1 = await fetchProducts('computador');
+  load();
+  produtos1.results.forEach((element) => {
     const items = document.getElementsByClassName('items');
     items[0].appendChild(createProductItemElement(element));
   });
