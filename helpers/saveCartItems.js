@@ -1,12 +1,12 @@
-  let svId = '';
+let stgId = '';
 const saveCartItems = (id, action = true) => {  
   if (action) {
-    svId = `${svId} ${id}`;
-    localStorage.setItem('id', svId);    
+    stgId = `${stgId} ${id}`;
+    localStorage.setItem('id', stgId);    
   } else {
-    svId = svId.replace(id, '');
-    localStorage.setItem('id', svId);
-  }// seu código aqui
+    stgId = stgId.replace(id, '');
+    localStorage.setItem('id', stgId);
+  }
 };
 
 if (typeof module !== 'undefined') {

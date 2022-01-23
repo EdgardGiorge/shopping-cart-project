@@ -1,8 +1,9 @@
 const fetchItem = async (itemID) => {
-  const url = `https://api.mercadolibre.com/items/${itemID}`;
-  const promise = await fetch(url).then((response) => response.json());
-  const obj = promise.then((object) => object);
-  return obj;// seu código aqui
+  const endpoint = `https://api.mercadolibre.com/items/${itemID}`;
+  const obj = await fetch(endpoint)
+                        .then((response) => response.json())
+                          .then((object) => object);
+  return obj;
 };
 
 if (typeof module !== 'undefined') {
