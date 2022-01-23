@@ -1,15 +1,15 @@
-const fetchProducts = async (product) => { // Ref. Reqist 1 e 8, grupo de estudos e mentoria em 14/01
-  const url = ` https://api.mercadolibre.com/sites/MLB/search?q=${product}`;
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {
-    return error; 
-  }// seu código aqui
-};
-fetchProducts();
+const fetchProducts = async () => {
+  const query = 'computador';
+  const endpoint = `https://api.mercadolibre.com/sites/MLB/search?q=${query}`;
+try { 
+  const promise = fetch(endpoint).then((response) => response.json());
+  const obj = await promise.then((object) => object.results);
+  console.log(promise);
+  return obj;
+} catch (error) {
+  return error;
+} 
+  };
 
 if (typeof module !== 'undefined') {
   module.exports = {
