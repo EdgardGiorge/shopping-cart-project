@@ -1,4 +1,4 @@
-const fetchProducts = async (product) => {
+const fetchProducts = async (product) => { // Ref. Reqist 1 e 8, grupo de estudos e mentoria em 14/01
   const url = ` https://api.mercadolibre.com/sites/MLB/search?q=${product}`;
   try {
     const response = await fetch(url);
