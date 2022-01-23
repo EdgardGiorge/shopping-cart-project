@@ -15,14 +15,17 @@ function createCustomElement(element, className, innerText) {
 function createProductItemElement({ sku, name, image }) {
   const section = document.createElement('section');
   section.className = 'item';
-
-  section.appendChild(createCustomElement('span', 'item__sku', sku));
-  section.appendChild(createCustomElement('span', 'item__title', name));
-  section.appendChild(createProductImageElement(image));
+  
+  const sectionItems = document.querySelector('.items'); // Ref. Reqist 1 e 8, grupo de estudos e mentoria em 14/01
+  section.appendChild(createCustomElement('span', 'item__sku', id));
+  section.appendChild(createCustomElement('span', 'item__title', title));
+  section.appendChild(createProductImageElement(thumbnail));
   section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
+  sectionItems.appendChild(section);
 
   return section;
 }
+createProductImageElement();
 
 function getSkuFromProductItem(item) {
   return item.querySelector('span.item__sku').innerText;
@@ -40,4 +43,17 @@ function createCartItemElement({ sku, name, salePrice }) {
   return li;
 }
 
-window.onload = () => { };
+const Products = async () => { // Ref. Reqist 1 e 8, grupo de estudos e mentoria em 14/01
+  const items = document.querySelector('.items'); 
+  const data = await fetchProducts('computador');
+  const { results } = data;
+  console.log(results);
+  results.forEach((item) => {
+    const itemProduct = createProductItemElement(item);
+    items.appendChild(itemProduct);  
+  });
+};
+
+window.onload = () => {
+  Products();
+};
