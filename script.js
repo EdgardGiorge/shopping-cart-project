@@ -1,3 +1,8 @@
+const load = () => {
+  document.querySelector('.loading');
+  return load.remove();
+};
+
 function createProductImageElement(imageSource) {
   const img = document.createElement('img');
   img.className = 'item__image';
