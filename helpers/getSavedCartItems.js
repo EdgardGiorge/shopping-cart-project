@@ -1,8 +1,10 @@
 const getSavedCartItems = () => {
   if (localStorage.length > 0) {
-    return localStorage.getItem('cartItems').split(' ');
-   }
-   return [];// seu código aqui
+   const arrRetorno = localStorage.getItem('cartItems').split(' ');
+   localStorage.setItem('cartItems', '');
+   return arrRetorno;
+  }
+  return [];
 };
 
 if (typeof module !== 'undefined') {
