@@ -9,7 +9,7 @@ const fetchProducts = async (product) => {
     return error; 
   }// seu código aqui
 };
-console.log(fetchProducts());
+fetchProducts();
 
 if (typeof module !== 'undefined') {
   module.exports = {
