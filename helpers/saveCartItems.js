@@ -1,11 +1,15 @@
-let stgId = '';
+let svId = '';
 const saveCartItems = (id, action = true) => {  
   if (action) {
-    stgId = `${stgId} ${id}`;
-    localStorage.setItem('id', stgId);    
+    if (localStorage.getItem('cartItems') !== null) {
+      svId = localStorage.getItem('cartItems');
+    }
+    svId = `${svId} ${id}`;
+    svId = svId.trim();
+    localStorage.setItem('cartItems', svId);    
   } else {
-    stgId = stgId.replace(id, '');
-    localStorage.setItem('id', stgId);
+    svId = svId.replace(id, '').trim();
+    localStorage.setItem('cartItems', svId);
   }
 };
 
