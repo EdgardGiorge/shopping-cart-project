@@ -1,10 +1,12 @@
-const fetchItem = async (itemID) => {
-  const endpoint = `https://api.mercadolibre.com/items/${itemID}`;
-  const obj = await fetch(endpoint)
-                        .then((response) => response.json())
-                          .then((object) => object)
-                          .catch((error) => error);
-  return obj;
+const fetchItem = async (identificador) => {
+  const url = `https://api.mercadolibre.com/items/${identificador}`;
+  try {
+    const response = await fetch(url);
+    const produto = await response.json();
+    return produto;
+  } catch (error) {
+      return error;
+  }
 };
 
 if (typeof module !== 'undefined') {
