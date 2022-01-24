@@ -1,13 +1,15 @@
-// const fetch = require('node-fetch');
+const fetchProducts = async (QUERY) => {
+  const url = `https://api.mercadolibre.com/sites/MLB/search?q=${QUERY}`;
 
-const fetchProducts = async (query) => {  
-  const endpoint = `https://api.mercadolibre.com/sites/MLB/search?q=${query}`;
-  const retorno = await fetch(endpoint)
-                        .then((response) => response.json())
-                          .then((object) => object)
-                            .catch((error) => error);
-  return retorno;
-  };
+  try {
+    const response = await fetch(url);
+    const produto = await response.json();
+    const listProduto = produto.results;
+    return listProduto;
+  } catch (error) {
+    return error;
+  }
+};
 
 if (typeof module !== 'undefined') {
   module.exports = {
