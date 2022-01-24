@@ -1,10 +1,6 @@
 const getSavedCartItems = () => {
-  if (localStorage.length > 0) {
-   const arrRetorno = localStorage.getItem('cartItems').split(' ');
-   localStorage.setItem('cartItems', '');
-   return arrRetorno;
-  }
-  return [];
+  const produto = localStorage.getItem('cartItems');
+  return produto;
 };
 
 if (typeof module !== 'undefined') {
