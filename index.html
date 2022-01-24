@@ -16,7 +16,11 @@
     <script src="./helpers/getSavedCartItems.js" defer></script>
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="body">
+    <div id="fade-container" class= 'loading'>
+      <img id = 'carrega' src="https://acegif.com/wp-content/uploads/loading-46.gif">
+    </div>
+
     <header class="header">
       <div class="container-title">
         <span class="title"><strong>trybe</strong>shopping</span>
@@ -26,14 +30,17 @@
         <span class="cart__title">Meu carrinho</span>
       </div>
     </header>
+    
     <section class="container">
       <section class="items"></section>
       <section class="cart">
         <ol class="cart__items"></ol>
-        <h3 class="total-price" id="price_cart"></h3>
+        <div class="preco">
+          <p>Total a pagar :</p>
+          <div class="total-price"></div>
+        </div>
         <button class="empty-cart">Esvaziar carrinho</button>
       </section>
     </section>
-    <footer class="loading"> Carregando ...</footer>
   </body>
 </html>
